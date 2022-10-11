@@ -16,9 +16,12 @@ To access the commands for the tool, use the syntax ./plugin_tool_release.exe <y
 
 **version** : returns the current version for the tool
 
-**encrypt** : encrypts the specified input file and outputs it to the specified output file. For example: ./plugin_tool_release.exe MyPlugin.qplug MyEncryptedPlugin.qplugx
+**encrypt** : encrypts the specified input file and outputs it to the specified output file. 
+              For example: ./plugin_tool_release.exe MyPlugin.qplug MyEncryptedPlugin.qplugx
   
-Please note that encrypted plugins have the 'qplugx' extension. Additionally, if the file you are attempting to encrypt is not in the same folder as the tool, you'll need to specify the file location. For example: ./plugin_tool_release.exe encrypt C:\<path_to_your_plugin>\ATestPlugin.qplug C:\<path_to_your_plugin>\ATestPlugin\ATestPlugin.qplugx
+Please note that encrypted plugins have the 'qplugx' extension. Additionally, if the file you are attempting to encrypt is not in the same folder as the tool, you'll need to specify the file location. 
+
+For example: ./plugin_tool_release.exe encrypt C:\<path_to_your_plugin>\ATestPlugin.qplug C:\<path_to_your_plugin>\ATestPlugin\ATestPlugin.qplugx
 
 ## Support
 
