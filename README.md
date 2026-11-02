@@ -1,28 +1,46 @@
-# Plugin Encryption Tool
+# PluginTool
 
-This is a QSC tool you can use to encrypt your Q-SYS Plugin source code. This can ensure protection of any ids, keys, or intellectual property you might not want to be made publicly available.
+This is a QSC tool you can use to encrypt your Q-SYS Plugin source code.
 
-## Using the Tool in Windows PowerShell
+## Usage
 
-To use this tool, navigate to the folder with the plugin_tool_release.exe on your local machine.
+```plugin_tool.exe {help|-h|--help|?}```
 
-Launch PowerShell by holding shift and right clicking. Select 'Open PowerShell window here'.
+```plugin_tool.exe encrypt {-i|--input-file} <input_file> [{-o|--output-file} <output_file>] [{-m|--mode} {CoreOnly|CoreAndEmulate|CoreOnlyV3|CoreAndEmulateV3|Legacy}```
 
-To access the commands for the tool, use the syntax ./plugin_tool_release.exe <your_command_here>
+### Notes
 
-### Encryption Tool Commands
+- Powershell is suggested for use of this tool.
+- If output-file is not provided it will use the same file name with the corresponding extension
+  - .qplugx for Legacy
+  - .qplugx2 for CoreAndEmulate or CoreOnly
+- mode will default to CoreAndEmulate
+- arguments can be passed in in any order after encrypt, for example:
+  - plugin_tool.exe encrypt -i MyPlugin.qplug -m Legacy
+  - plugin_tool.exe encrypt -m Legacy -i MyPlugin.qplug
 
-**usage**   : returns the currently supported commands and their syntax. Please note that invalid commands or a blank command will return the same as the **usage** command.
+## Modes
 
-**version** : returns the current version for the tool
+### Legacy
 
-**encrypt** : encrypts the specified input file and outputs it to the specified output file. 
-              For example: ./plugin_tool_release.exe encrypt MyPlugin.qplug MyEncryptedPlugin.qplugx
-  
-Please note that encrypted plugins have the 'qplugx' extension. Additionally, if the file you are attempting to encrypt is not in the same folder as the tool, you'll need to specify the file location. 
+Will run in all versions of QSYS Designer that support encrypted plugins.
 
-For example: ./plugin_tool_release.exe encrypt C:\<path_to_your_plugin>\ATestPlugin.qplug C:\<path_to_your_plugin>\ATestPlugin\ATestPlugin.qplugx
+### CoreAndEmulate (Default)
+
+Will only run in Q-SYS Designer 9.10 and later.
+
+### CoreAndEmulateV3
+
+Will only run in Q-SYS Designer 10.5 and later.
+
+### CoreOnly
+
+Same as CoreAndEmulate but the runtime code is only decoded on a QSYS Core. The Plugin will report Fault in Emulation.
+
+### CoreOnlyV3
+
+Same as CoreOnly but requires Q-SYS Designer 10.5 and later.
 
 ## Support
 
-If you have any questions or concerns, please contact qsyscontrolfeedback@qsc.com
+If you have any questions or concerns, please go to [support.qsys.com/contact-us](https://support.qsys.com/contact-us)
